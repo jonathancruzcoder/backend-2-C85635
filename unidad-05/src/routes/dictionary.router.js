@@ -6,7 +6,7 @@ const router = Router();
 const words = ['perro', 'gato', 'auto'];
 
 router.param('word', (req, res, next, word) => {
-
+    // Actualización para Express v5
     if (!/^[a-zA-Z]+$/.test(word)) {
         return res.status(404).send({ status: 'error', msg: 'word inválida' })
     }
