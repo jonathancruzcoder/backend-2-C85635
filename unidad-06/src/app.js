@@ -12,6 +12,7 @@ app.use( express.urlencoded({ extended: true}))
 // Rutas
 app.use('/api/users', UsersRouter)
 
+
 app.get('/', (req, res) => {
     res.send({status: 'ok'});
 })
