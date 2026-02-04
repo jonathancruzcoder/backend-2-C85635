@@ -1,19 +1,19 @@
 import { Router } from "express";
 import userController from '../controllers/user.controller.js'
 // Provisorio ...
-import { UserModel } from "../models/user.model.js";
+// import { UserModel } from "../models/user.model.js";
+// import { hashPassword, comparePassword } from "../utils/crypto.js";
 
-
-import { hashPassword, comparePassword } from "../utils/crypto.js";
-import { getById } from "../daos/users.dao.js";
 
 const router = Router()
 
 router.get('/', userController.getUsers);
-router.get('/uid', getById);
+router.get('/:uid', userController.getById);
+router.post('/', userController.createUser);
 router.delete('/:uid', userController.deleteById);
 
 // Anteriormente sin las capas Controller, Service, Dao
+/*
 router.post('/', async (req, res) => {
   const { name, email, role, password } = req.body;
 
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
   });
 
 });
-
+*/
 
 
 export default router

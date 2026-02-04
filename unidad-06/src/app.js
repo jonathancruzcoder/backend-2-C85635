@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { config } from './config/config.js';
 import { connectDB } from './config/db.js'
 import UsersRouter from './routes/users.router.js';
@@ -8,7 +9,7 @@ const app = express();
 
 app.use( express.json());
 app.use( express.urlencoded({ extended: true}))
-
+app.use( cors());
 // Rutas
 app.use('/api/users', UsersRouter)
 

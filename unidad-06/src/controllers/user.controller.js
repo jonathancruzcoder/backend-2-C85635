@@ -8,7 +8,7 @@ const getUsers = async ( req, res) => {
     });
 }
 
-const getUserById = async (req, res) => {
+const getById = async (req, res) => {
     try {
         const { uid } = req.params
         const user = await userService.getById( uid)
@@ -34,8 +34,7 @@ const getUserById = async (req, res) => {
 }
 
 const createUser = async ( req, res) => {
-    const data = req.body;
-    const newUser =  await userService.createUser( data);
+    const newUser =  await userService.createUser( req.body);
     res.status(201).json(newUser);
 }
 
@@ -62,4 +61,4 @@ const deleteById = async (req, res) => {
         })
     }
 }
-export default { getUsers, getUserById, deleteById, createUser}
+export default { getUsers, getById, deleteById, createUser}
